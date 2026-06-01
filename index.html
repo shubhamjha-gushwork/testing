@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Brand</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#0f172a;
+    color:white;
+    line-height:1.6;
+}
+
+.container{
+    width:min(1100px,90%);
+    margin:auto;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at top left,#3b82f655,transparent 40%),
+    radial-gradient(circle at bottom right,#8b5cf655,transparent 40%);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 18px;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:999px;
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(10px);
+    margin-bottom:24px;
+}
+
+h1{
+    font-size:clamp(3rem,7vw,5.5rem);
+    font-weight:800;
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+.highlight{
+    background:linear-gradient(90deg,#60a5fa,#a78bfa);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+    max-width:700px;
+    margin:auto;
+    font-size:1.2rem;
+    color:#cbd5e1;
+}
+
+.buttons{
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    text-decoration:none;
+    padding:14px 28px;
+    border-radius:12px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,#3b82f6,#8b5cf6);
+    color:white;
+}
+
+.btn-primary:hover{
+    transform:translateY(-2px);
+}
+
+.btn-secondary{
+    border:1px solid rgba(255,255,255,.15);
+    color:white;
+}
+
+.btn-secondary:hover{
+    background:rgba(255,255,255,.05);
+}
+
+.features{
+    padding:100px 0;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.5rem;
+    margin-bottom:60px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:24px;
+}
+
+.card{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+    padding:30px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#cbd5e1;
+}
+
+.cta{
+    padding:120px 0;
+    text-align:center;
+}
+
+.cta-box{
+    background:linear-gradient(
+        135deg,
+        rgba(59,130,246,.15),
+        rgba(139,92,246,.15)
+    );
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:30px;
+    padding:60px 30px;
+}
+
+.cta h2{
+    font-size:2.5rem;
+    margin-bottom:20px;
+}
+
+.footer{
+    padding:40px 0;
+    text-align:center;
+    color:#94a3b8;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+@media(max-width:768px){
+    .buttons{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .btn{
+        width:100%;
+        max-width:280px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+    <div class="hero-content container">
+
+        <div class="badge">
+            🚀 Launch Faster
+        </div>
+
+        <h1>
+            Build Something
+            <span class="highlight">Amazing</span>
+        </h1>
+
+        <p class="subtitle">
+            A modern, elegant landing page designed to showcase your
+            product, service, or personal brand with clarity and impact.
+        </p>
+
+        <div class="buttons">
+            <a href="#features" class="btn btn-primary">Get Started</a>
+            <a href="#contact" class="btn btn-secondary">Learn More</a>
+        </div>
+
+    </div>
+</section>
+
+<section class="features" id="features">
+    <div class="container">
+
+        <h2 class="section-title">
+            Why Choose Us
+        </h2>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>⚡ Fast</h3>
+                <p>
+                    Optimized for performance and lightning-fast loading.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🎨 Beautiful</h3>
+                <p>
+                    Crafted with modern UI principles and responsive design.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🔒 Secure</h3>
+                <p>
+                    Built with best practices for reliability and trust.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>📈 Scalable</h3>
+                <p>
+                    Ready to grow with your business and future needs.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="cta" id="contact">
+    <div class="container">
+        <div class="cta-box">
+
+            <h2>Ready to Get Started?</h2>
+
+            <p style="margin-bottom:30px;color:#cbd5e1;">
+                Join thousands of customers building their next big idea.
+            </p>
+
+            <a href="mailto:hello@example.com" class="btn btn-primary">
+                Contact Us
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        © 2026 Your Brand. All rights reserved.
+    </div>
+</footer>
+
+</body>
+</html>
