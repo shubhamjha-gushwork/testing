@@ -1,0 +1,41 @@
+name: OpenCode Session Status Latency
+
+on:
+  workflow_dispatch:
+    inputs:
+      opencode_base_url:
+        description: OpenCode server base URL (use preview URL unless runner is inside the sandbox)
+        required: false
+        default: https://4096-iswa0ux4tmtae723.daytonaproxy01.net
+        type: string
+
+jobs:
+  probe-session-status:
+    name: Probe /session/status latency
+    runs-on: ubuntu-latest
+
+    env:
+      OPENCODE_BASE_URL: ${{ inputs.opencode_base_url || 'http://127.0.0.1:4096' }}
+
+    steps:
+      - name: Export AUTH header and probe OpenCode
+        env:
+          OPENCODE_SERVER_PASSWORD: ${{ secrets.OPENCODE_SERVER_PASSWORD }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${OPENCODE_SERVER_PASSWORD:-}" ]; then
+            echo "OPENCODE_SERVER_PASSWORD secret is required."
+            exit 1
+          fi
+
+          export AUTH="Authorization: Basic $(printf 'opencode:%s' "$OPENCODE_SERVER_PASSWORD" | base64 -w 0)"
+
+          echo "Probing ${OPENCODE_BASE_URL}/session/status"
+          curl -sS -o /dev/null -w \
+          'time_namelookup:  %{time_namelookup}s\n\
+          time_connect:     %{time_connect}s\n\
+          time_starttransfer: %{time_starttransfer}s\n\
+          time_total:       %{time_total}s\n\
+          http_code:        %{http_code}\n' \
+          -H "$AUTH" "${OPENCODE_BASE_URL}/session/status"
